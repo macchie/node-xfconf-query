@@ -63,13 +63,13 @@ const properties = XFConfQuery.listProperties('xfce4-power-manager');
 ### Read Property Value
 
 ```javascript
-const dpmsEnabled = XFConfQuery.read('xfce4-power-manager', '/xfce4-power-manager/blank-on-ac');
+const dpmsEnabled = XFConfQuery.readProperty('xfce4-power-manager', '/xfce4-power-manager/blank-on-ac');
 ```
 
 ### Write Property Value
 
 ```javascript
-const result = XFConfQuery.write('xfce4-power-manager', '/xfce4-power-manager/blank-on-ac', 0);
+const result = XFConfQuery.writeProperty('xfce4-power-manager', '/xfce4-power-manager/blank-on-ac', 0);
 ```
 
 <!-- ## package.json

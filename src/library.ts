@@ -38,7 +38,7 @@ export default class XFConfQuery {
     });
   }
 
-  public static async read(channel: string, property: string): Promise<string | number | boolean | undefined> {
+  public static async readProperty(channel: string, property: string): Promise<string | number | boolean | undefined> {
     return new Promise((resolve) => {
       exec(this.getReadPropertyCommand(channel, property), (error, stdout, stderr) => {
         if (error) {
@@ -71,7 +71,7 @@ export default class XFConfQuery {
     });
   }
 
-  public static async write(channel: string, property: string, value: string | number | boolean): Promise<boolean> {
+  public static async writeProperty(channel: string, property: string, value: string | number | boolean): Promise<boolean> {
     return new Promise((resolve) => {
       exec(this.getWritePropertyCommand(channel, property, value), (error, stdout, stderr) => {
         if (error) {
