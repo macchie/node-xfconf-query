@@ -59,7 +59,7 @@ var XFConfQuery = /** @class */ (function () {
     XFConfQuery.list = function (channel) {
         exec(this.getListCommand(channel), function (error, stdout, stderr) {
             if (error) {
-                throw error;
+                return undefined;
             }
             console.log(stdout);
             if (stdout && stdout !== '') {
@@ -73,7 +73,7 @@ var XFConfQuery = /** @class */ (function () {
     XFConfQuery.read = function (channel, property) {
         exec(this.getReadCommand(channel, property), function (error, stdout, stderr) {
             if (error) {
-                throw error;
+                return undefined;
             }
             console.log(stdout);
             if (stdout && stdout !== '') {

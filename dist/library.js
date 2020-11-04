@@ -63,7 +63,7 @@
         XFConfQuery.list = function (channel) {
             child_process.exec(this.getListCommand(channel), function (error, stdout, stderr) {
                 if (error) {
-                    throw error;
+                    return undefined;
                 }
                 console.log(stdout);
                 if (stdout && stdout !== '') {
@@ -77,7 +77,7 @@
         XFConfQuery.read = function (channel, property) {
             child_process.exec(this.getReadCommand(channel, property), function (error, stdout, stderr) {
                 if (error) {
-                    throw error;
+                    return undefined;
                 }
                 console.log(stdout);
                 if (stdout && stdout !== '') {
