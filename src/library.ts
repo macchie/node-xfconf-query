@@ -27,7 +27,12 @@ export default class XFConfQuery {
         }
 
         if (stdout !== undefined && stdout !== '') {
-          return resolve(stdout);
+          try {
+            console.log(typeof stdout);
+            return resolve(stdout.trim());
+          } catch (error) {
+            return resolve(stdout);
+          }
         } else {
           return resolve(undefined);
         }
