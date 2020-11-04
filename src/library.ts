@@ -9,12 +9,12 @@ export default class XFConfQuery {
           return resolve(undefined);
         }
   
-        console.log(stdout.split("\n"));
+        console.log(stdout && stdout !== '');
   
         if (stdout && stdout !== '') {
           return resolve(stdout.split("\n"));
         } else {
-          return resolve([]);
+          return resolve(undefined);
         }
       });
     })
