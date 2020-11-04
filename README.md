@@ -1,6 +1,6 @@
-# @macchie7/node-xfconf-query
+# node-xfconf-query
 
-[![npm](https://img.shields.io/npm/dt/@macchie7/node-xfconf-query)](https://www.npmjs.com/package/@macchie7/node-xfconf-query)
+[![npm](https://img.shields.io/npm/dt/node-xfconf-query)](https://www.npmjs.com/package/node-xfconf-query)
 [![NPM version](https://badge.fury.io/js/node-xfconf-query.svg)](https://www.npmjs.com/package/node-xfconf-query)
 [![License](https://img.shields.io/github/license/macchie/node-xfconf-query)](https://github.com/macchie/node-xfconf-query/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/macchie/node-xfconf-query)](https://github.com/macchie/node-xfconf-query/issues)
