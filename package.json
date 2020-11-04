@@ -32,7 +32,8 @@
         "watch": "rollup -cw rollup.config.ts",
         "configure-npm": "node ./set-registry.js -s https://registry.npmjs.org",
         "configure-gpr": "node ./set-registry.js -s https://npm.pkg.github.com",
-        "test": "jest"
+        "test": "jest",
+        "prepublish": "npm run build && npm version patch"
     },
     "publishConfig": {
         "access": "public",

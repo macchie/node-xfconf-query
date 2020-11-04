@@ -5,8 +5,10 @@ export default class XFConfQuery {
   public static list(channel: string): string[] | void {
     exec(this.getListCommand(channel), (error, stdout, stderr) => {
       if (error) {
-        throw error;
+        return undefined;
       }
+
+      console.log(stdout);
 
       if (stdout && stdout !== '') {
         return stdout.split("\n")
@@ -19,8 +21,10 @@ export default class XFConfQuery {
   public static read(channel: string, property: string): string | number | boolean | undefined | void {
     exec(this.getReadCommand(channel, property), (error, stdout, stderr) => {
       if (error) {
-        throw error;
+        return undefined;
       }
+
+      console.log(stdout);
 
       if (stdout && stdout !== '') {
         return stdout;

@@ -61,6 +61,7 @@ var XFConfQuery = /** @class */ (function () {
             if (error) {
                 throw error;
             }
+            console.log(stdout);
             if (stdout && stdout !== '') {
                 return stdout.split("\n");
             }
@@ -74,6 +75,7 @@ var XFConfQuery = /** @class */ (function () {
             if (error) {
                 throw error;
             }
+            console.log(stdout);
             if (stdout && stdout !== '') {
                 return stdout;
             }

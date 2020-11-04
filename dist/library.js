@@ -65,6 +65,7 @@
                 if (error) {
                     throw error;
                 }
+                console.log(stdout);
                 if (stdout && stdout !== '') {
                     return stdout.split("\n");
                 }
@@ -78,6 +79,7 @@
                 if (error) {
                     throw error;
                 }
+                console.log(stdout);
                 if (stdout && stdout !== '') {
                     return stdout;
                 }
