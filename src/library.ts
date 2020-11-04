@@ -2,35 +2,39 @@ import { exec } from 'child_process';
 
 export default class XFConfQuery {
 
-  public static list(channel: string): string[] | void {
-    exec(this.getListCommand(channel), (error, stdout, stderr) => {
-      if (error) {
-        return undefined;
-      }
-
-      console.log(stdout);
-
-      if (stdout && stdout !== '') {
-        return stdout.split("\n")
-      } else {
-        return [];
-      }
-    });
+  public static async list(channel: string): Promise<string[] | void> {
+    return new Promise((resolve) => {
+      exec(this.getListCommand(channel), (error, stdout, stderr) => {
+        if (error) {
+          return resolve(undefined);
+        }
+  
+        console.log(stdout.split("\n"));
+  
+        if (stdout && stdout !== '') {
+          return resolve(stdout.split("\n"));
+        } else {
+          return resolve([]);
+        }
+      });
+    })
   }
 
-  public static read(channel: string, property: string): string | number | boolean | undefined | void {
-    exec(this.getReadCommand(channel, property), (error, stdout, stderr) => {
-      if (error) {
-        return undefined;
-      }
+  public static async read(channel: string, property: string): Promise<string | number | boolean | undefined | void> {
+    return new Promise((resolve) => {
+      exec(this.getReadCommand(channel, property), (error, stdout, stderr) => {
+        if (error) {
+          return resolve(undefined);
+        }
 
-      console.log(stdout);
+        console.log(stdout);
 
-      if (stdout && stdout !== '') {
-        return stdout;
-      } else {
-        return undefined;
-      }
+        if (stdout && stdout !== '') {
+          return resolve(stdout);
+        } else {
+          return resolve(undefined);
+        }
+      });
     });
   }
 
