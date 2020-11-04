@@ -55,7 +55,7 @@ export default class XFConfQuery {
             }
 
             // if int type
-            if (parseInt(value, 10)) {
+            if (parseInt(value, 10) !== NaN) {
               return resolve(parseInt(value, 10));
             }
 
