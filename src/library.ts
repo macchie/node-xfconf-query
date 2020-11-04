@@ -9,10 +9,9 @@ export default class XFConfQuery {
           return resolve(undefined);
         }
   
-        console.log(stdout && stdout !== '');
-  
         if (stdout && stdout !== '') {
-          return resolve(stdout.split("\n"));
+          const properties = stdout.split("\n").filter(line => line.length > 0);
+          return resolve(properties);
         } else {
           return resolve(undefined);
         }
@@ -26,8 +25,6 @@ export default class XFConfQuery {
         if (error) {
           return resolve(undefined);
         }
-
-        console.log(stdout);
 
         if (stdout && stdout !== '') {
           return resolve(stdout);
