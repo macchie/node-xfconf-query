@@ -1,0 +1,57 @@
+{
+    "name": "node-xfconf-query",
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "author": "macchie",
+    "description": "xfconf-query wrapper for nodejs",
+    "homepage": "https://github.com/macchie/node-xfconf-query",
+    "keywords": [
+        "TypeScript",
+        "JavaScript",
+        "library",
+        "typescript-library",
+        "javascript-library"
+    ],
+    "umdName": "sampleLibrary",
+    "libraryFile": "library",
+    "main": "dist/library.js",
+    "module": "dist/library.es.js",
+    "types": "dist/library.d.ts",
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/macchie/node-xfconf-query"
+    },
+    "bugs": {
+        "url": "https://github.com/macchie/node-xfconf-query/issues"
+    },
+    "scripts": {
+        "build": "rollup -c rollup.config.ts",
+        "watch": "rollup -cw rollup.config.ts",
+        "configure-npm": "node ./set-registry.js -s https://registry.npmjs.org",
+        "configure-gpr": "node ./set-registry.js -s https://npm.pkg.github.com",
+        "test": "jest"
+    },
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org"
+    },
+    "devDependencies": {
+        "@lopatnov/rollup-plugin-uglify": "^2.1.0",
+        "@types/jest": "^26.0.9",
+        "@types/typescript": "^2.0.0",
+        "jest": "^26.2.2",
+        "jest-config": "^26.2.2",
+        "rollup": "^2.23.1",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-json": "^4.0.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-sourcemaps": "^0.6.2",
+        "rollup-plugin-typescript2": "^0.27.2",
+        "terser": "^5.0.0",
+        "ts-jest": "^26.1.4",
+        "typescript": "^3.9.7"
+    }
+}
