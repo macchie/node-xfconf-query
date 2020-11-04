@@ -28,8 +28,20 @@ export default class XFConfQuery {
 
         if (stdout !== undefined && stdout !== '') {
           try {
-            console.log(typeof stdout);
-            return resolve(stdout.trim());
+            const value = stdout.trim();
+
+            // if bool type
+            if (value === 'false' || value === 'true') {
+              return resolve(value === 'true');
+            }
+
+            // if int type
+            if (parseInt(value, 10)) {
+              return resolve(parseInt(value, 10));
+            }
+
+            // string type & others
+            return resolve(value);
           } catch (error) {
             return resolve(stdout);
           }
