@@ -69,7 +69,8 @@ const dpmsEnabled = XFConfQuery.readProperty('xfce4-power-manager', '/xfce4-powe
 ### Write Property Value
 
 ```javascript
-const result = XFConfQuery.writeProperty('xfce4-power-manager', '/xfce4-power-manager/blank-on-ac', 0);
+const result = XFConfQuery.writeProperty('xfce4-power-manager', '/xfce4-power-manager/dpms-enabled', false);
+XFConfQuery.writeProperty('xfce4-power-manager', '/xfce4-power-manager/blank-on-ac', 0);
 ```
 
 <!-- ## package.json
