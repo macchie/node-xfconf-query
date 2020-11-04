@@ -65,7 +65,7 @@
                 if (error) {
                     throw error;
                 }
-                if (stdout) {
+                if (stdout && stdout !== '') {
                     return stdout.split("\n");
                 }
                 else {
@@ -73,12 +73,17 @@
                 }
             });
         };
-        XFConfQuery.read = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    console.log("i can read");
-                    return [2 /*return*/];
-                });
+        XFConfQuery.read = function (channel, property) {
+            child_process.exec(this.getReadCommand(channel, property), function (error, stdout, stderr) {
+                if (error) {
+                    throw error;
+                }
+                if (stdout && stdout !== '') {
+                    return stdout;
+                }
+                else {
+                    return undefined;
+                }
             });
         };
         XFConfQuery.write = function () {
@@ -89,8 +94,12 @@
                 });
             });
         };
+        // private
         XFConfQuery.getListCommand = function (channel) {
             return "xfconf-query -c " + channel + " -l";
+        };
+        XFConfQuery.getReadCommand = function (channel, property) {
+            return "xfconf-query -c " + channel + " -p " + property;
         };
         return XFConfQuery;
     }());
