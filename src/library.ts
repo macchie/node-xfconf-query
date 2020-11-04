@@ -8,7 +8,7 @@ export default class XFConfQuery {
         throw error;
       }
 
-      if (stdout) {
+      if (stdout && stdout !== '') {
         return stdout.split("\n")
       } else {
         return [];
@@ -16,15 +16,31 @@ export default class XFConfQuery {
     });
   }
 
-  public static async read() {
-    console.log(`i can read`)
+  public static read(channel: string, property: string): string | number | boolean | undefined | void {
+    exec(this.getReadCommand(channel, property), (error, stdout, stderr) => {
+      if (error) {
+        throw error;
+      }
+
+      if (stdout && stdout !== '') {
+        return stdout;
+      } else {
+        return undefined;
+      }
+    });
   }
 
   public static async write() {
     console.log(`i can write`)
   }
 
+  // private
+
   private static getListCommand(channel: string): string {
     return `xfconf-query -c ${channel} -l`;
+  }
+
+  private static getReadCommand(channel: string, property: string): string {
+    return `xfconf-query -c ${channel} -p ${property}`;
   }
 }

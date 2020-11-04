@@ -6,8 +6,13 @@ describe("Base tests", () => {
     expect(XFConfQuery.list).toBeDefined();
   });
 
-  it("should create Library", async () => {
-    const list = XFConfQuery.list(`xfce4-power-manager`) || [];
+  it("should list 'xfce4-power-manager' properties", async () => {
+    const list = XFConfQuery.list('xfce4-power-manager') || [];
     expect(list.length).toBeGreaterThanOrEqual(0);
+  });
+
+  it("should read 'xfce4-power-manager' '/xfce4-power-manager/dpms-enabled' property", async () => {
+    const value = XFConfQuery.read('xfce4-power-manager', '/xfce4-power-manager/dpms-enabled');
+    expect(value).toBeDefined();
   });
 });
