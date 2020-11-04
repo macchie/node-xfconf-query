@@ -57,7 +57,7 @@ const channels = XFConfQuery.listChannels();
 ### List Channel Properties
 
 ```javascript
-const properties = XFConfQuery.list('xfce4-power-manager');
+const properties = XFConfQuery.listProperties('xfce4-power-manager');
 ```
 
 ### Read Property Value
