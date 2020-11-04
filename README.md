@@ -16,7 +16,7 @@
 <!-- [![Twitter](https://img.shields.io/twitter/url?url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40my-templates%2Fnode-xfconf-query)](https://twitter.com/intent/tweet?text=I%20want%20to%20share%20TypeScript%20library:&url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40my-templates%2Fnode-xfconf-query)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-lopatnov-informational?style=social&logo=linkedin)](https://www.linkedin.com/in/lopatnov/) -->
 
-xfconf-query wrapper for nodejs
+[xfconf-query](https://docs.xfce.org/xfce/xfconf/xfconf-query) wrapper for nodejs
 
 ## Install
 
@@ -48,6 +48,12 @@ var XFConfQuery = require("node-xfconf-query");
 
 ## Usage
 
+### List Channels
+
+```javascript
+const channels = XFConfQuery.listChannels();
+```
+
 ### List Channel Properties
 
 ```javascript
@@ -57,13 +63,13 @@ const properties = XFConfQuery.list('xfce4-power-manager');
 ### Read Property Value
 
 ```javascript
-const dpmsEnabled = XFConfQuery.read('xfce4-power-manager', '/xfce4-power-manager/dpms-enabled');
+const dpmsEnabled = XFConfQuery.read('xfce4-power-manager', '/xfce4-power-manager/blank-on-ac');
 ```
 
 ### Write Property Value
 
 ```javascript
-const result = XFConfQuery.write('xfce4-power-manager', '/xfce4-power-manager/dpms-enabled', true);
+const result = XFConfQuery.write('xfce4-power-manager', '/xfce4-power-manager/blank-on-ac', 0);
 ```
 
 <!-- ## package.json

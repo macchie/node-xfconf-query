@@ -2,7 +2,26 @@ import { exec } from 'child_process';
 
 export default class XFConfQuery {
 
-  public static async list(channel: string): Promise<string[] | void> {
+  public static async listChannels(): Promise<string[] | void> {
+    return new Promise((resolve) => {
+      exec('xfconf-query -l', (error, stdout, stderr) => {
+        if (error) {
+          return resolve(undefined);
+        }
+  
+        if (stdout !== undefined && stdout !== '') {
+          const channelsListResult = stdout.split("\n").filter(line => line.length > 0);
+          let [ channelsListTitle, ...channelsList ] = channelsListResult;
+          channelsList = channelsList.map(line => line.trim());
+          return resolve(channelsList);
+        } else {
+          return resolve(undefined);
+        }
+      });
+    });
+  }
+
+  public static async listProperties(channel: string): Promise<string[] | void> {
     return new Promise((resolve) => {
       exec(this.getListCommand(channel), (error, stdout, stderr) => {
         if (error) {
